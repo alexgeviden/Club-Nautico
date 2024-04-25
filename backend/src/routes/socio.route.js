@@ -1,8 +1,9 @@
 import {Router} from 'express';
-import {getSocio , getSocios , createSocio , updateSocio , deleteSocio} from '../controller/socio.controller.js';
+import {getSocio , getSocios , createSocio , updateSocio , deleteSocio , getBarcosSocio} from '../controller/socio.controller.js';
 const router = Router();
 
 router.get('/socios', getSocios);
+router.get('/socios/:idsocio/barcos', getBarcosSocio);
 router.get('/socios/:id', getSocio);
 router.post('/socios', createSocio);
 router.put('/socios/:id', updateSocio);

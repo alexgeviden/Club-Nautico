@@ -1,4 +1,6 @@
 import {Socio} from '../models/socio.js';
+import Barco from '../models/barco.js';
+
 
 export const getSocios = async (req, res) => {
    try {
@@ -61,5 +63,27 @@ export const deleteSocio = async (req, res) => {
         console.log('Algo falla en deleteSocio')
         return res.status(500).json({ message: error.message });
     }
+}
+export const getBarcosSocio = async (req, res) => {
+    
+try {
+            const { idsocio } = req.params;
+            const barcos = await Barco.findAll({
+                where: {
+                    idsocio
+                }
+            });
+            const socio = await Socio.findByPk(idsocio);
+            const barcosocio = {
+                barco: barcos,
+                socio: socio
+            }
+            console.log('Estas llamndo a getBarcosSocio correctamente')
+            res.json(barcosocio);
+} catch (error) {
+    return res.status(500).json({ message: error.message });
+}
+    
+
 }
     
