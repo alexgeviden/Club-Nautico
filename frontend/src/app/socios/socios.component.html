@@ -1,0 +1,10 @@
+<p>socios works!</p>
+
+<div>
+  <h2>Socios</h2>
+  <ul>
+    <li *ngFor="let item of data">
+      <p [innerHTML]="sanitize('El ID del socio es : ' + item.idsocio + ' - ' + item.nombre + ' - ' + item.telefono)"></p>
+    </li>
+  </ul>
+</div>

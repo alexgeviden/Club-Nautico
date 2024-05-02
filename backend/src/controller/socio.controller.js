@@ -4,7 +4,7 @@ import Barco from '../models/barco.js';
 
 export const getSocios = async (req, res) => {
    try {
-     const socios = await Socio.findAll();
+    const socios = await Socio.findAll({ attributes: ['idsocio' , 'nombre', 'telefono'] });
      res.json({socios});
      console.log('Estas llamando a getSocios correctamente')
    } catch (error) {
