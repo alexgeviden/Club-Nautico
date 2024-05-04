@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+
+body{
+  margin: 0;
+  font-family:"Cascadia Mono";
+  background-color: #716e6e;
+}
+header {
+  background-color: #51a5e9;
+  color: #fff;
+  padding: 20px;
+  text-align: left;
+height: 160px;
+}

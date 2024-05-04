@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SociosService } from '../service/socios.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-socios',
   templateUrl: './socios.component.html',
@@ -12,7 +12,7 @@ export class SociosComponent implements OnInit {
   data: any[] = [];
   datos: any[] = [];
 
-  constructor(private apiService: SociosService , private sanitizer: DomSanitizer ){}
+  constructor(private apiService: SociosService , private sanitizer: DomSanitizer , private router: Router ){}
 
   ngOnInit(): void {
     this.llenarData();
@@ -20,19 +20,38 @@ export class SociosComponent implements OnInit {
 
   llenarData(){
     this.apiService.getData().subscribe(data => {
-      // Check if data is an array; if not, convert it to an array
+
       if (Array.isArray(data)) {
         this.data = data[0];
       } else if (typeof data === 'object') {
-        // Convert object to an array of values
+
        this.datos = Object.values(data);
-      } else {
-        // Handle other cases as needed
       }
       this.data = this.datos[0];
-      console.log(this.data[0]);
+
     });
   }
+  enviarSocio(id: number) {
+    this.router.navigateByUrl(`/actualizaSocio/${id}`);
+  }
+  eliminarSocio(id: number) {
+    const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este socio con ID :' + id + ' ?');
+
+    if (confirmacion) {
+      console.log('Se ha codigido este ID del HTML : ' + id);
+      this.apiService.deleteSocio(id).subscribe(
+        () => {
+          console.log('Socio eliminado con éxito');
+
+          window.location.reload();
+        },
+        error => {
+          console.error('Error al eliminar socio:', error);
+        }
+      );
+    }
+  }
+
   sanitize(html: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }

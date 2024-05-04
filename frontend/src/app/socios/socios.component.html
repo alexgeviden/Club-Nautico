@@ -1,10 +1,47 @@
-<p>socios works!</p>
-
-<div>
-  <h2>Socios</h2>
-  <ul>
-    <li *ngFor="let item of data">
-      <p [innerHTML]="sanitize('El ID del socio es : ' + item.idsocio + ' - ' + item.nombre + ' - ' + item.telefono)"></p>
-    </li>
-  </ul>
-</div>
+<section id="socios-section">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Listado de Socios</h2>
+      <a href="/nuevosocio">
+        <button class="btn btn-primary" style="float: right;">
+          <i class="fas fa-plus"></i> Agregar Socio
+        </button>
+      </a>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID Socio</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+            <th>Ver Barcos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item.idsocio }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.telefono }}</td>
+            <td>
+              <button class="btn btn-link" (click)="enviarSocio(item.idsocio)">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-link" (click)="eliminarSocio(item.idsocio)">
+                <i class="fas fa-trash-alt" style="color: red;"></i>
+              </button>
+            </td>
+            <td>
+              <a href="">
+                <span class="material-symbols-outlined" id="viewicon">
+                  sailing
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

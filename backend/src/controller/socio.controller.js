@@ -15,7 +15,9 @@ export const getSocios = async (req, res) => {
 }
 export const getSocio = async (req, res) => {
     const {id} = req.params;
-    const socio = await Socio.findByPk(id);
+    const socio = await Socio.findByPk(id, {
+        attributes: ['nombre', 'telefono'] 
+    });
     res.json(socio);
 }
 export const createSocio = async (req, res) => {

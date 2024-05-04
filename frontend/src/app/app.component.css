@@ -1,0 +1,22 @@
+
+nav {
+  display: flex;
+  justify-content:end;
+position: relative;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+a:hover {
+  background-color: #5b7bd2;
+  border-radius: 10px;
+}
+
+#header-icon {
+  position: absolute;
+  width: 9%; /* Ajusta el tamaño de la imagen según tus necesidades */
+
+}

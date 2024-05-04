@@ -1,0 +1,13 @@
+<form class="custom-form" (ngSubmit)="crearSocio()">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nuevoSocio.nombre" required>
+  </div>
+
+  <div class="form-group">
+    <label for="telefono">Teléfono:</label>
+    <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="nuevoSocio.telefono" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block mt-3">Crear Socio</button>
+</form>
