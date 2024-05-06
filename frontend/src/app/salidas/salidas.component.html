@@ -1,0 +1,43 @@
+<section id="barcos-section">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Listado de Salidas</h2>
+      <a href="/nuevaSalida">
+        <button class="btn btn-primary" style="float: right;">
+          <i class="fas fa-plus"></i> Agregar Salida
+        </button>
+      </a>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID Salida</th>
+            <th>Fecha</th>
+            <th>Destino</th>
+            <th>Barco</th>
+            <th>Patron</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item.idsalida }}</td>
+            <td>{{ formatFecha(item.fecha) }}</td>
+            <td>{{ item.destino }}</td>
+            <td>{{ item.num_matricula }}</td>
+            <td>{{item.idpatron}}</td>
+            <td>
+              <button class="btn btn-link" (click)="enviarSalida(item.num_matricula)">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-link" (click)="eliminarSalida(item.num_matricula)">
+                <i class="fas fa-trash-alt" style="color: red;"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

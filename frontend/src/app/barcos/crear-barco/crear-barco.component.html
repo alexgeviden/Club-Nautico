@@ -1,0 +1,21 @@
+<form class="custom-form" (ngSubmit)="crearBarco()">
+  <div class="form-group">
+    <label for="matricula">Matricula:</label>
+    <input type="number" class="form-control" id="matricula" name="matricula" [(ngModel)]="nuevoBarco.num_matricula" required>
+  </div>
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nuevoBarco.nombre" required>
+  </div>
+  <div class="form-group">
+    <label for="nombre">Amarre:</label>
+    <input type="text" class="form-control" id="amarre" name="amarre" [(ngModel)]="nuevoBarco.amarre" required>
+  </div>
+  <div class="form-group">
+    <label for="idsocio">Socio:</label>
+    <select class="form-control" id="idsocio" name="idsocio" [(ngModel)]="nuevoBarco.idsocio" required>
+      <option *ngFor="let socio of data" [value]="socio.idsocio">{{ socio.nombre }}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block mt-3">Crear Barco</button>
+</form>

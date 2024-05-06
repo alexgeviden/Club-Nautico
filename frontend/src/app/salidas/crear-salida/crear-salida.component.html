@@ -1,0 +1,23 @@
+<form class="custom-form" (ngSubmit)="crearSalida()">
+  <div class="form-group">
+    <label for="fecha">Fecha:</label>
+    <input type="datetime-local" class="form-control" id="fecha" name="fecha" [(ngModel)]="nuevaSalida.fecha" required>
+  </div>
+  <div class="form-group">
+    <label for="destino">Destino:</label>
+    <input type="text" class="form-control" id="destino" name="destino" [(ngModel)]="nuevaSalida.destino" required>
+  </div>
+  <div class="form-group">
+    <label for="matricula">Matricula de barco:</label>
+    <select class="form-control" id="idsocio" name="idsocio" [(ngModel)]="nuevaSalida.num_matricula" required>
+      <option *ngFor="let barco of dataBarco" [value]="barco.num_matricula">{{ barco.nombre }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="idpatron">Patron:</label>
+    <select class="form-control" id="idpatron" name="idpatron" [(ngModel)]="nuevaSalida.idpatron" required>
+      <option *ngFor="let patron of data" [value]="patron.idepatron">{{ patron.nombre }}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block mt-3">Crear Barco</button>
+</form>

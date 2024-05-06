@@ -10,6 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialIcon } from 'material-icons';
 import { ActualizaSocioComponent } from './actualiza-socio/actualiza-socio.component';
 import { HomeComponent } from './home/home.component';
+import { BarcosComponent } from './barcos/barcos.component';
+import { CrearBarcoComponent } from './barcos/crear-barco/crear-barco.component';
+import { ActualizaBarcoComponent } from './barcos/actualiza-barco/actualiza-barco.component';
+import { BarcoSocioComponent } from './barcos/barco-socio/barco-socio.component';
+import { SalidasComponent } from './salidas/salidas.component';
+import { CrearSalidaComponent } from './salidas/crear-salida/crear-salida.component';
+import { ActualizarSalidaComponent } from './salidas/actualizar-salida/actualizar-salida.component';
+import { SalidaFechaComponent } from './salidas/salida-fecha/salida-fecha.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +26,14 @@ import { HomeComponent } from './home/home.component';
     AgregaSocioComponent,
     ActualizaSocioComponent,
     HomeComponent,
+    BarcosComponent,
+    CrearBarcoComponent,
+    ActualizaBarcoComponent,
+    BarcoSocioComponent,
+    SalidasComponent,
+    CrearSalidaComponent,
+    ActualizarSalidaComponent,
+    SalidaFechaComponent,
 
   ],
   imports: [

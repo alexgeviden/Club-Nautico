@@ -7,7 +7,7 @@ import './models/salidas.js';
 
 async function main(){
     try {
-        await sequelize.sync({force: false})
+        await sequelize.sync()
         app.listen(3000);
         console.log("Server Activo en puerto : 3000")}
      catch (error) {

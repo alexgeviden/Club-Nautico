@@ -1,0 +1,19 @@
+<form (ngSubmit)="actualizarBarco()">
+  <div class="form-group">
+    <label for="num_matricula">Número de Matrícula:</label>
+    <input type="text" class="form-control" id="num_matricula" name="num_matricula" [(ngModel)]="barcoActualizado.num_matricula" [value]="barcoActualizado.num_matricula" required>
+  </div>
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="barcoActualizado.nombre" [value]="barcoActualizado.nombre" required>
+  </div>
+  <div class="form-group">
+    <label for="amarre">Amarre:</label>
+    <input type="text" class="form-control" id="amarre" name="amarre" [(ngModel)]="barcoActualizado.amarre" [value]="barcoActualizado.amarre" required>
+  </div>
+  <div class="form-group">
+    <label for="idsocio">ID Socio:</label>
+    <input type="text" class="form-control" id="idsocio" name="idsocio" [(ngModel)]="barcoActualizado.idsocio" [value]="barcoActualizado.idsocio" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Actualizar Barco</button>
+</form>

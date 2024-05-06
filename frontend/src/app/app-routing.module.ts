@@ -4,6 +4,12 @@ import { SociosComponent } from './socios/socios.component';
 import { AgregaSocioComponent } from './agrega-socio/agrega-socio.component';
 import { ActualizaSocioComponent } from './actualiza-socio/actualiza-socio.component';
 import { HomeComponent } from './home/home.component';
+import { CrearBarcoComponent } from './barcos/crear-barco/crear-barco.component';
+import { BarcosComponent } from './barcos/barcos.component';
+import { ActualizaBarcoComponent } from './barcos/actualiza-barco/actualiza-barco.component';
+import { BarcoSocioComponent } from './barcos/barco-socio/barco-socio.component';
+import { SalidasComponent } from './salidas/salidas.component';
+import { CrearSalidaComponent } from './salidas/crear-salida/crear-salida.component';
 
 
 const routes: Routes = [
@@ -11,8 +17,14 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: 'socios' , component: SociosComponent},
   {path: 'nuevosocio' , component: AgregaSocioComponent},
+  {path: 'nuevobarco' , component: CrearBarcoComponent},
   {path: 'actualizaSocio/:id' , component: ActualizaSocioComponent},
+  {path: 'actualizaBarco/:id' , component: ActualizaBarcoComponent},
+  {path: 'socios/:id/barcos' , component: BarcoSocioComponent},
   {path: 'home' , component: HomeComponent},
+  {path: 'barcos' , component: BarcosComponent},
+  {path: 'salidas' , component: SalidasComponent},
+  {path: 'nuevaSalida' , component: CrearSalidaComponent},
 
 ];
 

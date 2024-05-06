@@ -1,4 +1,5 @@
 import { Barco } from '../models/barco.js';
+import { Socio } from '../models/socio.js';
 
 export const getBarcos = async (req, res) => {
     try {
@@ -75,3 +76,13 @@ export const deleteBarco = async (req, res) => {
         return res.status(500).json({ message: error.message });
     }
 };
+export const barcoSocio = async ( req , res ) => {
+    const { num_matricula } = req.params
+    const { idsocio } = req.body
+    const socio = await Socio.findByPk(idsocio)
+    await socio.addBarco(num_matricula)
+
+   
+
+    res.json(Barco)
+}
