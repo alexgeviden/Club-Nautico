@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SalidasService } from '../service/salidas.service';
 import { Router } from '@angular/router';
+import { BarcosService } from '../service/barcos.service';
 
 @Component({
   selector: 'app-salidas',
@@ -12,11 +13,30 @@ export class SalidasComponent {
 
   data: any[] = [];
   datos: any[] = [];
+  mostrarInput: boolean = false;
+  fecha!: Date;
 
-  constructor(private apiService: SalidasService , private sanitizer: DomSanitizer , private router: Router ){}
-
+  constructor(private apiService: SalidasService , private sanitizer: DomSanitizer , private router: Router , private compartido: BarcosService ){}
+  idBarco: number = this.compartido.getidBarco();
   ngOnInit(): void {
+
     this.llenarData();
+
+  }
+
+  filtrarDatos(fecha: Date) {
+    if (fecha) {
+      this.data = this.data.filter(item => item.fecha.includes(fecha));
+    } else {
+      this.llenarData();
+    }
+  }
+
+  reset() {
+    this.llenarData();
+  }
+  toggleInput() {
+    this.mostrarInput = !this.mostrarInput;
   }
 
   llenarData(){

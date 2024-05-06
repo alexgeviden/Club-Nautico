@@ -1,1 +1,19 @@
-<p>actualizar-salida works!</p>
+<form (ngSubmit)="actualizarSalida()">
+  <div class="form-group">
+    <label for="fecha">Fecha:</label>
+    <input type="datetime-local" class="form-control" id="fecha" name="fecha" [(ngModel)]="salidaActualizada.fecha" [value]="salidaActualizada.fecha" required>
+  </div>
+  <div class="form-group">
+    <label for="destino">Destino:</label>
+    <input type="text" class="form-control" id="destino" name="destino" [(ngModel)]="salidaActualizada.destino" [value]="salidaActualizada.destino" required>
+  </div>
+  <div class="form-group">
+    <label for="barco">Barco:</label>
+    <input type="number" class="form-control" id="barco" name="barco" [(ngModel)]="salidaActualizada.num_matricula" [value]="salidaActualizada.num_matricula" required>
+  </div>
+  <div class="form-group">
+    <label for="idsocio">ID Socio:</label>
+    <input type="number" class="form-control" id="idsocio" name="idsocio" [(ngModel)]="salidaActualizada.idpatron" [value]="salidaActualizada.idpatron" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Actualizar Barco</button>
+</form>

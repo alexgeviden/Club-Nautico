@@ -17,6 +17,7 @@
             <th>Amarre</th>
             <th>ID Dueño</th>
             <th>Acciones</th>
+            <th>Salidas</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +32,13 @@
               </button>
               <button class="btn btn-link" (click)="eliminarBarco(item.num_matricula)">
                 <i class="fas fa-trash-alt" style="color: red;"></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-link" (click)="salidasBarco(item.num_matricula)">
+                <span class="material-symbols-outlined">
+                  explore
+                  </span>
               </button>
             </td>
           </tr>

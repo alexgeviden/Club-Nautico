@@ -10,6 +10,7 @@ import { ActualizaBarcoComponent } from './barcos/actualiza-barco/actualiza-barc
 import { BarcoSocioComponent } from './barcos/barco-socio/barco-socio.component';
 import { SalidasComponent } from './salidas/salidas.component';
 import { CrearSalidaComponent } from './salidas/crear-salida/crear-salida.component';
+import { ActualizarSalidaComponent } from './salidas/actualizar-salida/actualizar-salida.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'nuevobarco' , component: CrearBarcoComponent},
   {path: 'actualizaSocio/:id' , component: ActualizaSocioComponent},
   {path: 'actualizaBarco/:id' , component: ActualizaBarcoComponent},
+  {path: 'actualizaSalida/:id' , component: ActualizarSalidaComponent},
   {path: 'socios/:id/barcos' , component: BarcoSocioComponent},
   {path: 'home' , component: HomeComponent},
   {path: 'barcos' , component: BarcosComponent},

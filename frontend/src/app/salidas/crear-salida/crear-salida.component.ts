@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SalidasService } from '../../service/salidas.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Salida } from '../../crud/salidas';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-salida',
@@ -15,7 +16,8 @@ export class CrearSalidaComponent implements OnInit {
   dataBarco: any[] = [];
   nuevaSalida: Salida = { fecha: new Date(), destino: '' , num_matricula: 0 , idpatron: 0 };
 
-  constructor(private apiService: SalidasService , private sanitizer: DomSanitizer ){}
+
+  constructor(private apiService: SalidasService , private sanitizer: DomSanitizer , private router: Router ){}
 
   ngOnInit(): void {
     this.llenarData();
@@ -47,13 +49,15 @@ console.log(this.data)
       .subscribe(
         response => {
           console.log('salida creada exitosamente:', response);
-          // Por ejemplo, puedes redirigir al usuario a otra página
+
         },
         error => {
           console.error('Error al crear salida:', error);
           // Aquí puedes manejar el error, como mostrar un mensaje al usuario
         }
       );
+      this.router.navigateByUrl('/salidas');
+
   }
 
   sanitize(html: string): SafeHtml {

@@ -10,13 +10,19 @@ export class BarcosService {
 
   private urlBarcos='http://localhost:3000/barcos';
   private urlSocios='http://localhost:3000/socios';
-
+  idBarco: number = 0;
   constructor(private http: HttpClient ) { }
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
+  }
+  setidBarco(id:number){
+    this.idBarco = id;
+  }
+  getidBarco(){
+    return this.idBarco;
   }
 getBarcoSocio(id: number): Observable<any[]>{
 return this.http.get<any[]>(this.urlSocios+`/${id}`+'/barcos').pipe(
