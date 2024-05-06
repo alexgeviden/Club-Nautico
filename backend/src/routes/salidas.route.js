@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getSalida, getSalidas, createSalida, updateSalida, deleteSalida } from '../controller/salidas.controller.js';
+import { getSalida, getSalidas, createSalida, updateSalida, deleteSalida , getSalidaBarco} from '../controller/salidas.controller.js';
 
 const router = Router();
 
@@ -8,5 +8,6 @@ router.get('/salidas/:idsalida', getSalida);
 router.post('/salidas', createSalida);
 router.put('/salidas/:idsalida', updateSalida);
 router.delete('/salidas/:idsalida', deleteSalida);
+router.get('/salidaBarco/:num_matricula', getSalidaBarco);
 
 export default router;

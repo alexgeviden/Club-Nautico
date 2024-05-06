@@ -1,0 +1,54 @@
+<section id="barcos-section">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title" style="text-align: center;">Listado de Salidas para Barco</h2>
+      <h3 style="text-align: center;">Matricula : {{num_matricula}}</h3>
+      <div class="input-container">
+        <button class="btn btn-primary" (click)="toggleInput()">
+          Buscar por Fecha <i class="fa fa-table" style="margin-left: 5px;"></i>
+        </button>
+        <div *ngIf="mostrarInput" class="input-wrapper">
+          <input type="month" class="form-control" [(ngModel)]="fecha" (input)="filtrarDatos(fecha)">
+          <button class="btn btn-primary" id="resetboton" (click)="reset()">Reset <i id="reseticon" class="fas fa-history" style="margin-left: 5px;"></i></button>
+        </div>
+      </div>
+
+      <a href="/nuevaSalida">
+        <button class="btn btn-primary" style="float: right;">
+          <i class="fas fa-plus"></i> Agregar Salida
+        </button>
+      </a>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID Salida</th>
+            <th>Fecha</th>
+            <th>Destino</th>
+            <th>Barco</th>
+            <th>Patron</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item.idsalida }}</td>
+            <td>{{ formatFecha(item.fecha) }}</td>
+            <td>{{ item.destino }}</td>
+            <td>{{ item.num_matricula }}</td>
+            <td>{{item.idpatron}}</td>
+            <td>
+              <button class="btn btn-link" (click)="enviarSalida(item.idsalida)">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-link" (click)="eliminarSalida(item.idsalida)">
+                <i class="fas fa-trash-alt" style="color: red;"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

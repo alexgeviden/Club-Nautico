@@ -11,6 +11,7 @@ export class SalidasService {
   private urlSalidas='http://localhost:3000/salidas';
   private urlPatron='http://localhost:3000/patrones';
   private urlBarco='http://localhost:3000/barcos';
+  private urlSalidaBarco='http://localhost:3000/salidaBarco';
   constructor( private http: HttpClient ){ }
 
   httpOptions = {
@@ -18,7 +19,9 @@ export class SalidasService {
       'Content-Type': 'application/json'
     })
   }
-
+  getSalidaBarco(matricula:number): Observable<any>{
+    return this.http.get<any>(this.urlSalidaBarco+`/${matricula}`);
+  }
   getSalida(idsalida:number): Observable<any>{
     return this.http.get<any>(this.urlSalidas+`/${idsalida}`);
   }

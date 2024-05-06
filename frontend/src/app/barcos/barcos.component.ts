@@ -18,7 +18,9 @@ export class BarcosComponent {
   ngOnInit(): void {
     this.llenarData();
   }
-
+  enviarSalidaBarco(idsalida: number) {
+    this.router.navigateByUrl(`/salidaBarco/${idsalida}`);
+  }
   llenarData(){
     this.apiService.getData().subscribe(data => {
 
@@ -35,10 +37,7 @@ export class BarcosComponent {
   enviarBarco(num_matricula: number) {
     this.router.navigateByUrl(`/actualizaBarco/${num_matricula}`);
   }
-  salidasBarco(idBarco:number){
-        this.apiService.setidBarco(idBarco);
-        this.router.navigateByUrl(`/salidas`);
-  }
+
   eliminarBarco(num_matricula: number) {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este barco con matricula :' + num_matricula + ' ?');
 

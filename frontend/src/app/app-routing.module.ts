@@ -11,6 +11,7 @@ import { BarcoSocioComponent } from './barcos/barco-socio/barco-socio.component'
 import { SalidasComponent } from './salidas/salidas.component';
 import { CrearSalidaComponent } from './salidas/crear-salida/crear-salida.component';
 import { ActualizarSalidaComponent } from './salidas/actualizar-salida/actualizar-salida.component';
+import { SalidaBarcoComponent } from './salidas/salida-barco/salida-barco.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'barcos' , component: BarcosComponent},
   {path: 'salidas' , component: SalidasComponent},
   {path: 'nuevaSalida' , component: CrearSalidaComponent},
+  {path: 'salidaBarco/:id' , component: SalidaBarcoComponent},
 
 ];
 

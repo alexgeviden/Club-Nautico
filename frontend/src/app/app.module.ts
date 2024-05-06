@@ -18,6 +18,7 @@ import { SalidasComponent } from './salidas/salidas.component';
 import { CrearSalidaComponent } from './salidas/crear-salida/crear-salida.component';
 import { ActualizarSalidaComponent } from './salidas/actualizar-salida/actualizar-salida.component';
 import { SalidaFechaComponent } from './salidas/salida-fecha/salida-fecha.component';
+import { SalidaBarcoComponent } from './salidas/salida-barco/salida-barco.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SalidaFechaComponent } from './salidas/salida-fecha/salida-fecha.compon
     CrearSalidaComponent,
     ActualizarSalidaComponent,
     SalidaFechaComponent,
+    SalidaBarcoComponent,
 
   ],
   imports: [

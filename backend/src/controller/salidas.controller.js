@@ -1,3 +1,4 @@
+
 import { Salidas } from '../models/salidas.js';
 
 export const getSalidas = async (req, res) => {
@@ -21,6 +22,22 @@ export const getSalida = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+export const getSalidaBarco = async (req , res) => {
+    console.log('LLamaste a Salida Barco')
+    const { num_matricula } = req.params;
+    try {
+        const salidaBarco = await Salidas.findAll({
+            where: {
+              num_matricula: num_matricula
+            }
+          });
+          res.json(salidaBarco);
+    } catch (error) {
+        res.status(500).json({ message: error.message }); 
+    }
+}
+
+
 
 export const createSalida = async (req, res) => {
     const { fecha, destino, num_matricula, idpatron } = req.body;
